@@ -6,11 +6,14 @@
   subtitle.innerHTML = transformToSpans(splitUpContent(subtitle));
 
   let colorIndex = 0;
+  let forward = true;
 
-  setInterval(() => {
-    colorize(title.querySelectorAll("span"), colorIndex);
-    colorIndex = (colorIndex + 1) % 10;
-  }, 2500);
+  let x = setInterval(() => {
+    colorize(title.querySelectorAll("span"), colorIndex++, forward);
+    forward = !forward;
+    if (colorIndex === 2) clearInterval(x);
+    colorIndex = colorIndex % 2;
+  }, 2000);
 
   setTimeout(() => slideIn(subtitle.querySelectorAll("span")), 1000);
 })();
@@ -38,9 +41,10 @@ function transformToSpans(stringArray) {
   return htmlstring;
 }
 
-function colorize(spans, colorIndex) {
+function colorize(spans, colorIndex, forward) {
   const colors = [
     "green",
+    "#fff",
     "red",
     "blue",
     "orange",
@@ -51,8 +55,10 @@ function colorize(spans, colorIndex) {
     "white",
     "pink",
   ];
+  spans = Array.from(spans);
 
-  console.log(colorIndex);
+  if (!forward) spans.reverse();
+
   let timer = 100;
   for (let span of spans) {
     setTimeout(() => (span.style.color = colors[colorIndex]), timer);
