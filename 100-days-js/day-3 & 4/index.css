@@ -27,7 +27,7 @@ body {
 }
 .title {
   padding: 10px;
-  background-color: green;
+  background-image: linear-gradient(to bottom, #25c247, #0ea830, #25c247);
   color: #fff;
   text-align: center;
   text-transform: uppercase;
@@ -37,6 +37,14 @@ body {
 
 .pad {
   background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.pad #results {
+  text-align: right;
+  width: 100%;
 }
 
 .row {
@@ -69,6 +77,9 @@ body {
 .row .operator {
   background-color: #233899;
 }
+.row .operator:hover {
+  background-color: #233899ee;
+}
 .row {
   border-bottom: 3px solid #fff;
 }
@@ -76,7 +87,6 @@ body {
 .row:last-of-type {
   border: none;
 }
-
 .row div:last-child {
   border: none;
 }
