@@ -89,7 +89,8 @@
         break;
     }
     let string_value = "";
-    if (!parseInt(result.toFixed(2).toString().split(".")[1]) === 0)
+    let value_parsed = parseFloat(result.toFixed(2));
+    if (!value_parsed.toString().split(".")[1] === 0)
       string_value = result.toFixed(2).toString();
     else string_value = result.toString();
     clearState();
