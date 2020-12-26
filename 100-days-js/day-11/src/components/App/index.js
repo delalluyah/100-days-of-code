@@ -1,10 +1,12 @@
 import "./App.css";
 import Modal from "../Modal";
-// import React from "react";
+
 function App() {
   return (
     <div className="main-content">
-      <Modal />
+      <Modal display_link={true}>
+        <p style={{ textAlign: "center" }}> Hello there!</p>
+      </Modal>
     </div>
   );
 }
