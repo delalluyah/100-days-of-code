@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compound interest calculator</title>
+  </head>
+  <body>
+    <div id="content">
+      <fieldset>
+        <legend>
+          <h4><b>Compound Interest calculator</b></h4>
+        </legend>
+        <input type="number" placeholder="Amount" id="principal" />
+        <input type="number" placeholder="Rate" id="rate" />
+        <input type="number" placeholder="Times / Period" id="frequency" />
+        <input type="number" placeholder="Times" id="times" />
+      </fieldset>
+      <div>
+        <h2>GHC <span id="display"></span></h2>
+      </div>
+    </div>
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+      }
+      #content {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        grid-template-rows: 9em 3em;
+        margin: auto;
+      }
+
+      input {
+        width: 120px;
+        height: 40px;
+        padding-left: 15px;
+        margin-right: 2px;
+      }
+    </style>
+    <script>
+      let parameters = {
+        principal: 0,
+        rate: 0,
+        times: 0,
+        frequency: 0,
+      };
+      function onFormChange(e) {
+        var value = e.target.value === "" ? 0 : parseFloat(e.target.value);
+        parameters[e.target.id] = value;
+        displayTotal(calculateInterest(parameters));
+      }
+      function calculateInterest(params) {
+        var rate = params.rate / 100;
+        var total = rate / params.frequency;
+        total += 1;
+        return (
+          params.principal * Math.pow(total, params.times * params.frequency)
+        );
+      }
+      function displayTotal(total) {
+        document.getElementById("display").innerHTML = total;
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        let inputs = Array.from(document.getElementsByTagName("input"));
+        inputs.forEach((el) => el.addEventListener("change", onFormChange));
+      });
+    </script>
+  </body>
+</html>

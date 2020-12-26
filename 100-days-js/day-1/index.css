@@ -41,7 +41,47 @@ body {
 .animate-slide > span {
   opacity: 0;
 }
-.animate-slide > span.slide-in {
+.animate-slide > span.fade-in {
   animation: fade-in 0.5s ease-in;
   animation-fill-mode: forwards;
+}
+.move-right {
+  animation-name: move_right;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.stretch-out {
+  letter-spacing: 2px;
+  animation: stretch 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes move_right {
+  from {
+    position: relative;
+    right: 5em;
+    opacity: 0.5;
+  }
+  to {
+    right: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes stretch {
+  0% {
+    letter-spacing: -7px;
+    opacity: 0;
+  }
+  75% {
+    letter-spacing: 5px;
+    opacity: 1;
+  }
+  100% {
+    letter-spacing: 2px;
+    opacity: 1;
+  }
 }

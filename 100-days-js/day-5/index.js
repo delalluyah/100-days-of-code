@@ -1,6 +1,6 @@
 (function () {
   const posts_container = document.getElementById("posts");
-  let post_count = 1;
+  let post_count = 0;
   let loading = false;
 
   function loadPosts() {
@@ -16,10 +16,10 @@
     for (let i = post_count; i <= post_limit; i++) {
       let post = document.createElement("div");
       post.setAttribute("class", "post");
-      post.appendChild(document.createTextNode(`POST ${i}`));
+      post.appendChild(document.createTextNode(`POST ${i + 1}`));
       posts = [...posts, post];
     }
-    post_count = post_limit;
+    post_count = post_limit + 1;
     setTimeout(() => {
       posts_container.removeChild(preloader);
       for (let p of posts) {

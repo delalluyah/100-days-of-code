@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card flip</title>
+  </head>
+  <body
+    style="
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 3em;
+      perspective-origin: 100px;
+      perspective: 550px;
+      background: rgb(138, 114, 41);
+      background: linear-gradient(
+        180deg,
+        rgba(138, 114, 41, 0.9251050762101716) 0%,
+        rgba(212, 159, 68, 0.7234244039412641) 99%,
+        rgba(243, 241, 241, 0.6337885495995272) 100%
+      );
+      align-content: center;
+    "
+  >
+    <div class="card">
+      <div class="card-body">
+        <div class="front">front</div>
+        <div class="back">back</div>
+      </div>
+    </div>
+    <!-- <div class="card">
+      <div class="front">front</div>
+      <div class="back">back</div>
+    </div> -->
+
+    <style>
+      .card {
+        min-height: 400px;
+        max-width: 300px;
+        background-color: white;
+        -webkit-box-shadow: 0px 2px 23px -5px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 2px 23px -5px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 2px 23px -5px rgba(0, 0, 0, 0.75);
+        border-radius: 4px;
+        position: relative;
+        transition: transform 0.5s;
+        background-color: transparent;
+        transform-style: preserve-3d;
+      }
+      .card .back,
+      .card .front {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        backface-visibility: hidden;
+        line-height: 400px;
+        text-align: center;
+        color: white;
+        font-size: 3em;
+        font-weight: 500;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        letter-spacing: 0.12em;
+        transition: transform 1s;
+      }
+      .card .front {
+        background-color: black;
+      }
+      .card .back {
+        background-color: orange;
+        transform: rotateY(180deg);
+      }
+      .card:hover {
+        transform: rotateY(-180deg);
+      }
+    </style>
+  </body>
+</html>

@@ -23,13 +23,29 @@ function splitUpContent(domElement) {
   return textContent.split("");
 }
 
-function slideIn(spans) {
-  time = 100;
+function fadeIn(spans) {
+  let interval = 100;
+  let time = interval;
   for (const span of spans) {
     setTimeout(() => {
-      span.classList.add("slide-in");
+      span.classList.add("fade-in");
     }, time);
-    time += 100;
+    time += interval;
+  }
+}
+
+function slideIn(spans) {
+  let interval = 200;
+  let time = interval;
+  let drop = 20;
+  // spans.reverse();
+  for (const span of spans) {
+    if (time < 0) time = 5;
+    if (span.textContent === " ") span.style.width = "0.5rem";
+    setTimeout(() => {
+      span.classList.add("move-right");
+    }, time);
+    time += interval - drop++;
   }
 }
 

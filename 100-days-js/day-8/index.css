@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+.content {
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  width: 300px;
+  height: 35px;
+  border: none;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  font-size: 1rem;
+  outline: none;
+  transition-property: border-bottom-color, border-bottom-width;
+  transition-delay: 1s;
+  transition-duration: 1s;
+}
+
+input:hover {
+  border-bottom-color: purple;
+  border-bottom-width: 3px;
+}
+input:focus ~ label {
+  animation-name: label_float;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-fill-mode: forwards;
+}
+
+.form-control {
+  position: relative;
+}
+
+label {
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+}
+
+@keyframes label_float {
+  from {
+    color: black;
+    bottom: 6px;
+    font-size: 1rem;
+  }
+  to {
+    color: purple;
+    bottom: 28px;
+    font-size: 0.8rem;
+  }
+}
